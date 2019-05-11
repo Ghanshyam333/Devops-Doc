@@ -1,0 +1,58 @@
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  377  sudo -i
+  378  ss
+  379  ç
+  380  ssh-keygen
+  381  ssh-copy-id kushagra@40.76.89.245
+  382  ssh kushagra@40.76.89.245
+  383  ansible -m ping webservers
+  384  ansible -m command -a "uptime" webservers
+  385  ansible -m "shell" -a "d -kh" webservers
+  386  ansible -m "shell" -a "df -kh" webservers
+  387  ansible -m "shell" -a "df -kh /tmp" webservers
+  388  ansible-doc shell
+  389  ls
+  390  cd /
+  391  ls
+  392  vi test1.yml 
+  393  vi test.yml
+  394  cd /tmp
+  395  ls
+  396  ll
+  397  pwd
+  398  cd /
+  399  ll
+  400  ansible-playbook --list-hosts test.yml 
+  401  ansible-playbook test.yml 
+  402  vi test.yml 
+  403  ssh-keygen
+  404  ssh-copy-id kushagra@40.76.89.245
+  405  ssh kushagra@40.76.89.245
+  406  history
+  407  sudo vi /etc/ansible/hosts
+  408  ansible -m ping webservers
+  409  ansible-doc ping
+  410  ansible-doc -l
+  411  ansible -m command -a "uptime" webservers
+  412  ansible -m command -a "uptime" 40.76.89.245
+  413  ansible -m shell -a "df -kh" webservers
+  414  ansible -m shell -a "df -kh /tmp" webservers
+  415  ansible -m yum -a "name=httpd state=present"
+  416  ansible -m yum -a "name=httpd state=present" webservers
+  417  ansible -m yum -a "name=httpd state=present" webservers -s
+  418  ansible -m yum -a "name=httpd state=present" 40.76.89.245 -s
+  419  ansible -m user -a "name=test password=test" webservers -s
+  420  ansible -m user -a "name=test1 password=test" webservers -s
+  421  ansible -m service -a "name=httpd state=started" webservers -s
+  422  cd /tmp
+  423  ls
+  424  vi file.txt
+  425  sudo vi file.txt
+  426  cd /
+  427  ansible -m copy -a "src=/tmp/file.txt dest=/tmp/file.txt" webservers
+  428  vi /etc/ansible/hosts 
+  429  ansible -m yum -a "name=git state=present" webservers -s
+  430  ansible -m git -a "repo=https://github.com/devopstrainer1/test1.git dest=/tmp/git version=HEAD"
+  431  ansible -m git -a "repo=https://github.com/devopstrainer1/test1.git dest=/tmp/git version=HEAD" webservers
+  432  ansible -m setup webservers
+  433  ansible -m setup -a "filter=ansible_user*" webservers
