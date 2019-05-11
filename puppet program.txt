@@ -1,0 +1,48 @@
+ three important types of Puppet resources: package, file, and service
+
+----------------------------------------
+node 'node-1' {
+    file {'/info.txt':
+    ensure => 'present',  
+    content => "this is our first puppet file",
+    }
+
+    package{'httpd':
+    ensure => 'present',
+    }
+*** absent remove the package 
+*** purged 
+
+    service{'httpd':
+    ensure =>'running',
+    enable =>'true',
+    }
+    service{'httpd':
+    ensure =>'stopped',
+    enable =>'true',
+   }
+    package { 'curl':
+    ensure => installed,
+   }
+}
+------------
+variables:- The dollar sign ($) tells Puppet that what follows is a variable name. Variable names must begin with a lowercase letter or an underscore,
+ though the rest of the name can also contain uppercase letters or numbers.
+
+A variable can contain different types of data; one such type is a String (like php7.0-cli),
+ but Puppet variables can also contain Number or Boolean values (true or false).
+----------
+$php_package = 'php7.0-cli'
+
+package { $php_package:
+  ensure => installed,
+}
+
+
+
+============================================================
+cron { 'run-puppet':
+  command => '/usr/local/bin/run-puppet',
+  hour    => '*',
+  minute  => '*/15',
+}
